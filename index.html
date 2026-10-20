@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बाल शिक्षा - मज़ेदार लर्निंग गेम</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1 class="logo">🎈 बाल शिक्षा <span>लर्निंग गेम</span></h1>
+            <div class="score-board">
+                <div class="badge">⭐ स्कोर: <span id="score">0</span></div>
+                <div class="badge">🏆 स्टार्स: <span id="stars">0</span></div>
+            </div>
+        </header>
+
+        <!-- Navigation / Game Mode Selector -->
+        <nav class="game-nav">
+            <button class="nav-btn active" onclick="switchTab('math')">🔢 गणित का जादू</button>
+            <button class="nav-btn" onclick="switchTab('quiz')">🦁 शब्द व चित्र</button>
+            <button class="nav-btn" onclick="switchTab('memory')">🃏 यादाश्त खेल</button>
+        </nav>
+
+        <!-- Game Container Area -->
+        <main class="game-area">
+            <!-- Math Game Section -->
+            <section id="math-section" class="game-card">
+                <h2>🔢 गणित का जादू</h2>
+                <p class="subtitle">सही उत्तर चुनकर स्टार्स जीतें!</p>
+                <div class="question-box">
+                    <span id="math-num1">0</span>
+                    <span id="math-op">+</span>
+                    <span id="math-num2">0</span>
+                    <span>= ?</span>
+                </div>
+                <div class="options-grid" id="math-options"></div>
+                <div id="math-feedback" class="feedback"></div>
+                <button class="action-btn" onclick="generateMathQuestion()">अगला प्रश्न ➔</button>
+            </section>
+
+            <!-- Quiz Game Section -->
+            <section id="quiz-section" class="game-card hidden">
+                <h2>🦁 शब्द एवं चित्र ज्ञान</h2>
+                <p class="subtitle">चित्र/पहेली देखकर सही उत्तर बताओ!</p>
+                <div class="quiz-box">
+                    <div id="quiz-emoji" class="emoji-display">❓</div>
+                    <div id="quiz-question" class="question-text">प्रश्न यहाँ दिखेगा...</div>
+                </div>
+                <div class="options-grid" id="quiz-options"></div>
+                <div id="quiz-feedback" class="feedback"></div>
+                <button class="action-btn" onclick="nextQuizQuestion()">अगला प्रश्न ➔</button>
+            </section>
+
+            <!-- Memory Game Section -->
+            <section id="memory-section" class="game-card hidden">
+                <h2>🃏 यादाश्त का खेल (Memory Match)</h2>
+                <p class="subtitle">दो एक जैसे कार्ड्स की जोड़ी खोजें!</p>
+                <div class="memory-grid" id="memory-grid"></div>
+                <div id="memory-feedback" class="feedback"></div>
+                <button class="action-btn" onclick="initMemoryGame()">नया गेम शुरू करें 🔄</button>
+            </section>
+        </main>
+
+        <!-- Social / Footer -->
+        <footer class="game-footer">
+            <div class="social-links">
+                <span>📸 @Sir_mahee</span>
+                <span>▶️ Sir_mahee</span>
+                <span>✈️ Sir_mahee</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
